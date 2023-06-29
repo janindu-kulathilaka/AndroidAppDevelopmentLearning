@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,17 +19,25 @@ public class MainActivity extends AppCompatActivity {
         Log.d("fail", "it's not working");
     }
 
-    @SuppressLint("SetTextI18n")
-    public void toggle(View v) {
-        v.setEnabled(false);
-        Button button = (Button) v;
-        button.setText("Disabled");
-        Log.d("Sucess", "Button Disabled");
+//    @SuppressLint("SetTextI18n")
+//    public void toggle(View v) {
+//        v.setEnabled(false);
+//        Button button = (Button) v;
+//        button.setText("Disabled");
+//        Log.d("Sucess", "Button Disabled");
+//
+//        TextView text = findViewById(R.id.hello);
+//
+//        text.setText("hello janindu..");
+//
+//
+//    }
 
-        TextView text = findViewById(R.id.hello);
-
-        text.setText("hello janindu..");
-
-
+    public void handleText(View v){
+        TextView textView = findViewById(R.id.source);
+        String input = textView.getText().toString();
+        TextView name = findViewById(R.id.nameView);
+        name.setText(input);
+        Toast.makeText(this, ("Hello " + input), Toast.LENGTH_LONG).show();
     }
 }
